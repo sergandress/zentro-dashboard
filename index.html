@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ZentroAI Dashboard</title>
+    <script crossorigin src="https://unpkg.com/react@18/umd/react.production.min.js"></script>
+    <script crossorigin src="https://unpkg.com/react-dom@18/umd/react-dom.production.min.js"></script>
+    <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body { background: #0a0f1e; color: white; font-family: system-ui, sans-serif; }
+        .header { background: #0d1526; border-bottom: 1px solid #1e293b; padding: 16px 24px; display: flex; justify-content: space-between; align-items: center; position: sticky; top: 0; z-index: 50; }
+        .header h1 { font-size: 22px; font-weight: 800; }
+        .header h1 span { color: #10b981; }
+        .tabs { background: #0d1526; border-bottom: 1px solid #1e293b; padding: 0 24px; display: flex; gap: 4px; }
+        .tab-btn { padding: 14px 16px; background: none; border: none; border-bottom: 2px solid transparent; color: #64748b; cursor: pointer; font-weight: 600; font-size: 13px; transition: all 0.2s; }
+        .tab-btn.active { border-bottom-color: #10b981; color: #10b981; }
+        .content { padding: 24px; max-width: 1000px; margin: 0 auto; }
+        .grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 14px; margin-bottom: 24px; }
+        .stat-box { background: #0d1526; border: 1px solid #1e293b; border-radius: 12px; padding: 20px 24px; }
+        .stat-label { font-size: 12px; color: #64748b; margin-bottom: 8px; }
+        .stat-value { font-size: 30px; font-weight: 800; }
+        .table-container { background: #0d1526; border: 1px solid #1e293b; border-radius: 12px; overflow: hidden; }
+        table { width: 100%; border-collapse: collapse; }
+        thead { background: #1e293b; }
+        th { padding: 12px 16px; text-align: left; font-size: 11px; font-weight: 700; color: #94a3b8; }
+        td { padding: 13px 16px; font-size: 13px; border-top: 1px solid #1e293b; }
+        .status-badge { padding: 3px 10px; border-radius: 20px; font-size: 11px; font-weight: 700; }
+        .badge-confirmed { background: #064e3b; color: #10b981; }
+        .badge-pending { background: #78350f; color: #fbbf24; }
+        .badge-paid { background: #1e3a5f; color: #60a5fa; }
+        .badge-qualified { background: #064e3b; color: #10b981; }
+        .btn { padding: 8px 14px; background: #1e293b; border: 1px solid #334155; border-radius: 8px; color: white; cursor: pointer; font-size: 13px; }
+        .btn-primary { background: #10b981; border: none; font-weight: 600; }
+        .btn-download { background: #10b981; border: none; font-weight: 600; }
+        button { display: flex; align-items: center; gap: 6px; }
+    </style>
+</head>
+<body>
+    <div id="root"></div>
+
+    <script type="text/babel">
+        const { useState } = React;
+
+        function ZentroDashboard() {
+            const [activeTab, setActiveTab] = useState('overview');
+
+            const appointments = [
+                { id: 1, client: 'Maria González', service: 'Limpieza Facial', date: '2026-04-26', time: '2:00 PM', price: 75, status: 'Confirmada', paymentStatus: 'Pagado' },
+                { id: 2, client: 'Juan Pérez', service: 'Botox', date: '2026-04-27', time: '10:30 AM', price: 350, status: 'Confirmada', paymentStatus: 'Pagado' },
+                { id: 3, client: 'Ana Rodríguez', service: 'Rellenos', date: '2026-04-28', time: '3:15 PM', price: 250, status: 'Confirmada', paymentStatus: 'Pagado' },
+                { id: 4, client: 'Carlos López', service: 'Láser', date: '2026-04-29', time: '11:00 AM', price: 200, status: 'En proceso', paymentStatus: 'Pendiente' },
+                { id: 5, client: 'Sofia Reyes', service: 'Limpieza Facial', date: '2026-04-30', time: '4:30 PM', price: 75, status: 'Confirmada', paymentStatus: 'Pagado' },
+            ];
+
+            const leads = [
+                { id: 1, name: 'Roberto Martínez', phone: '(787) 555-9876', service: 'Botox', qualified: true, source: 'WhatsApp' },
+                { id: 2, name: 'Elena Morales', phone: '(787) 555-5432', service: 'Rellenos', qualified: true, source: 'Instagram' },
+                { id: 3, name: 'Daniel Sánchez', phone: '(787) 555-6789', service: 'Láser', qualified: false, source: 'Llamada' },
+                { id: 4, name: 'Laura Jiménez', phone: '(787) 555-4321', service: 'Limpieza Facial', qualified: true, source: 'WhatsApp' },
+            ];
+
+            const total​​​​​​​​​​​​​​​​
